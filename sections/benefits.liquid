@@ -1,0 +1,76 @@
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Fast Delivery"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Shipped within 24 hours"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Benefits",
+      "blocks": [
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="benefits-section">
+  {% for block in section.blocks %}
+    <div class="benefit">
+      {% case block.settings.title %}
+        {% when 'Fast delivery' %}
+          <img src="{{ 'icon-delivery.svg' | asset_url }}" alt="{{ block.settings.title }}" class="benefit-icon"/>
+        {% when 'Quality guarantee' %}
+          <img src="{{ 'icon-quality.svg' | asset_url }}" alt="{{ block.settings.title }}" class="benefit-icon"/>
+        {% when 'Best prices' %}
+          <img src="{{ 'icon-prices.svg' | asset_url }}" alt="{{ block.settings.title }}" class="benefit-icon"/>
+      {% endcase %}
+      <h3>{{ block.settings.title }}</h3>
+      <p>{{ block.settings.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+
+<style>
+  .benefits-section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  .benefit {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+  }
+</style>
