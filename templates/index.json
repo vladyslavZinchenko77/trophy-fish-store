@@ -64,7 +64,35 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Fast delivery",
+            "description": "Shipped within 24 hours"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Quality guarantee",
+            "description": "Only tested products"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Best prices",
+            "description": "Discounts and offers every day"
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
+      "settings": {}
     }
   },
-  "order": ["image_banner", "featured_collection"]
+  "order": ["image_banner", "benefits", "featured_collection"]
 }
